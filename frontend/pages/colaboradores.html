@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colaboradores - Almoxarifado</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-header-inner">
+        <h1>Almoxarifado</h1>
+        <nav class="page-tabs" aria-label="Navegacao principal">
+          <a
+            class="page-tab active"
+            href="/pages/colaboradores.html"
+            aria-current="page"
+            >Colaboradores</a
+          >
+          <a class="page-tab" href="/pages/tarefas.html">Tarefas</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="screen-card">
+        <div class="screen-toolbar">
+          <h2>Colaboradores</h2>
+          <button
+            class="btn btn-primary"
+            id="abrirModalColaborador"
+            type="button"
+          >
+            Novo colaborador
+          </button>
+        </div>
+
+        <p id="colaboradorFeedback" class="feedback" aria-live="polite"></p>
+        <div class="collaborators-grid" id="colaboradoresList"></div>
+      </section>
+    </main>
+
+    <div class="modal-overlay hidden" id="colaboradorModal" aria-hidden="true">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="colaboradorModalTitulo"
+      >
+        <button
+          class="modal-close"
+          type="button"
+          data-close-modal
+          aria-label="Fechar"
+        >
+          &times;
+        </button>
+        <h3 class="modal-title" id="colaboradorModalTitulo">
+          Novo colaborador
+        </h3>
+
+        <form id="colaboradorForm" class="form">
+          <input type="hidden" id="colaboradorId" />
+          <div class="form-group">
+            <label for="colaboradorNome">Nome do colaborador</label>
+            <input
+              type="text"
+              id="colaboradorNome"
+              placeholder="Digite o nome"
+              required
+            />
+          </div>
+          <div class="form-actions">
+            <button
+              class="btn btn-primary"
+              id="salvarColaborador"
+              type="submit"
+            >
+              Salvar colaborador
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      class="action-modal-overlay hidden"
+      id="colaboradorAcoes"
+      aria-hidden="true"
+    >
+      <div
+        class="action-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="colaboradorAcoesTitulo"
+      >
+        <button
+          class="modal-close"
+          type="button"
+          data-close-actions
+          aria-label="Fechar"
+        >
+          &times;
+        </button>
+        <h3 class="modal-title" id="colaboradorAcoesTitulo">
+          O que deseja fazer?
+        </h3>
+        <p class="modal-subtitle">Escolha uma acao para este colaborador.</p>
+        <div class="action-modal-buttons">
+          <button class="action-button" id="editarColaborador" type="button">
+            Editar
+          </button>
+          <button
+            class="action-button danger"
+            id="excluirColaborador"
+            type="button"
+          >
+            Excluir
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DTOs -->
+    <script src="/js/dtos/colaboradorDTO.js"></script>
+    <script src="/js/dtos/tarefaDTO.js"></script>
+    <!-- Services -->
+    <script src="/js/services/apiService.js"></script>
+    <script src="/js/services/colaboradorService.js"></script>
+    <script src="/js/services/tarefaService.js"></script>
+    <!-- Page -->
+    <script src="/js/pages/colaboradores.js"></script>
+  </body>
+</html>

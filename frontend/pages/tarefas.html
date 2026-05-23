@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarefas - Almoxarifado</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-header-inner">
+        <h1>Almoxarifado</h1>
+        <nav class="page-tabs" aria-label="Navegacao principal">
+          <a class="page-tab" href="/pages/colaboradores.html">Colaboradores</a>
+          <a
+            class="page-tab active"
+            href="/pages/tarefas.html"
+            aria-current="page"
+            >Tarefas</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="screen-card">
+        <div class="screen-toolbar">
+          <h2>Tarefas</h2>
+          <button class="btn btn-primary" id="abrirModalTarefa" type="button">
+            Nova tarefa
+          </button>
+        </div>
+
+        <p id="tarefaFeedback" class="feedback" aria-live="polite"></p>
+        <div class="tasks-list" id="tarefasList"></div>
+      </section>
+    </main>
+
+    <div class="modal-overlay hidden" id="tarefaModal" aria-hidden="true">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="tarefaModalTitulo"
+      >
+        <button
+          class="modal-close"
+          type="button"
+          data-close-modal
+          aria-label="Fechar"
+        >
+          &times;
+        </button>
+        <h3 class="modal-title" id="tarefaModalTitulo">Nova tarefa</h3>
+
+        <form id="tarefaForm" class="form">
+          <input type="hidden" id="tarefaId" />
+          <div class="form-group">
+            <label for="tarefaTitulo">Tarefa</label>
+            <input
+              type="text"
+              id="tarefaTitulo"
+              placeholder="Digite o titulo da tarefa"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="tarefaDescricao">Descricao</label>
+            <textarea
+              id="tarefaDescricao"
+              rows="4"
+              placeholder="Descricao da tarefa"
+            ></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tarefaStatus">Status</label>
+              <select id="tarefaStatus">
+                <option value="pendente">Pendente</option>
+                <option value="completed">Concluida</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tarefaColaborador">Responsavel</label>
+              <select id="tarefaColaborador"></select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" id="salvarTarefa" type="submit">
+              Salvar tarefa
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      class="action-modal-overlay hidden"
+      id="tarefaAcoes"
+      aria-hidden="true"
+    >
+      <div
+        class="action-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="tarefaAcoesTitulo"
+      >
+        <button
+          class="modal-close"
+          type="button"
+          data-close-actions
+          aria-label="Fechar"
+        >
+          &times;
+        </button>
+        <h3 class="modal-title" id="tarefaAcoesTitulo">O que deseja fazer?</h3>
+        <p class="modal-subtitle">Escolha uma acao para esta tarefa.</p>
+        <div class="action-modal-buttons">
+          <button class="action-button" id="editarTarefa" type="button">
+            Editar
+          </button>
+          <button class="action-button danger" id="excluirTarefa" type="button">
+            Excluir
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DTOs -->
+    <script src="/js/dtos/colaboradorDTO.js"></script>
+    <script src="/js/dtos/tarefaDTO.js"></script>
+    <!-- Services -->
+    <script src="/js/services/apiService.js"></script>
+    <script src="/js/services/colaboradorService.js"></script>
+    <script src="/js/services/tarefaService.js"></script>
+    <!-- Page -->
+    <script src="/js/pages/tarefas.js"></script>
+  </body>
+</html>
