@@ -8,6 +8,7 @@ Antes de rodar o projeto, instale:
 
 - Node.js
 - npm
+- DBeaver, caso queira abrir o banco SQLite `pim.db`
 
 Para verificar se ja estao instalados:
 
@@ -39,6 +40,24 @@ http://localhost:3000
 ```
 
 O servidor redireciona automaticamente para a tela de colaboradores.
+
+## Como Abrir o Banco `pim.db` no DBeaver
+
+O arquivo `pim.db` fica na raiz do projeto e e um banco de dados SQLite. O gerenciador usado para visualizar o banco foi o DBeaver.
+
+1. Abra o DBeaver.
+2. Clique em `Nova Conexao`.
+3. Escolha a opcao `SQLite`.
+4. No campo do arquivo do banco de dados, selecione o arquivo:
+
+```text
+pim.db
+```
+
+5. Confirme a conexao e clique em `Finish`.
+6. Depois de conectar, abra a conexao no painel lateral para visualizar as tabelas e os dados.
+
+Caso o DBeaver solicite o driver do SQLite, confirme o download/instalacao pelo proprio DBeaver.
 
 ## Telas
 
