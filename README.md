@@ -20,10 +20,6 @@ npm -v
 
 1. Abra o terminal na pasta do projeto:
 
-```bash
-cd "c:\Users\kaiom\OneDrive\Documentos\Projetos\PIM 3"
-```
-
 2. Instale as dependencias:
 
 ```bash
